@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.data/
+data/raw/*         # optional: if you don’t want raw data baked in
+models/*
+reports/figures/*
+mlruns/
+.ipynb_checkpoints/

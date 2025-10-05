@@ -1,0 +1,78 @@
+
+# Health Insurance Customer Segmentation Report
+
+## 1. Project Objective
+
+The primary objective of this project is to perform customer segmentation on a dataset of health insurance policyholders. By grouping customers into distinct segments based on their demographic and policy information, we aim to gain a deeper understanding of the customer base. This analysis will serve as a foundation for developing targeted marketing strategies for a vehicle insurance cross-sell campaign.
+
+This report details a comparative analysis between two different clustering models to determine the most effective approach for segmenting these customers.
+
+## 2. Data
+
+The analysis uses a dataset of health insurance customers. The features selected for the clustering analysis are:
+*   **Age:** The age of the customer.
+*   **Annual_Premium:** The amount the customer pays annually for their health insurance.
+*   **Vintage:** The number of days the customer has been with the company.
+
+These features were chosen as they provide key continuous numerical data points about each customer's profile and history with the company.
+
+## 3. Exploratory Data Analysis (EDA)
+
+An initial EDA was performed on the selected clustering features. A pair plot (`clustering_features_pairplot.png`) was generated to visualize the distributions of and relationships between Age, Annual_Premium, and Vintage.
+
+*   **Age:** Shows a wide distribution, with concentrations of customers in younger, middle-aged, and older brackets.
+*   **Annual_Premium:** Is heavily right-skewed, indicating that most customers pay a relatively low premium, while a small number of customers pay a very high premium.
+*   **Vintage:** Is fairly uniformly distributed, suggesting a steady flow of new customers over time.
+
+The scatter plots within the pair plot do not show obvious, easily separable clusters, suggesting that a simple visual segmentation is not possible and that algorithmic clustering is necessary.
+
+## 4. Modeling Approach
+
+To identify the most meaningful customer segments, we implemented and compared two distinct clustering models:
+
+*   **Baseline Model: K-Means Clustering**
+    *   **Why:** K-Means is a widely-used, efficient, and easily interpretable clustering algorithm. It serves as an excellent baseline because it is effective at identifying spherical clusters and provides a solid benchmark for comparison.
+    *   **Implementation:** We configured K-Means to find 5 distinct clusters.
+
+*   **Improved Model: Gaussian Mixture Model (GMM)**
+    *   **Why:** GMM is a more flexible, probabilistic model. Unlike K-Means, which assigns each point to a single cluster, GMM provides probabilities of a point belonging to each cluster. It can also model non-spherical (ellipsoidal) clusters, which can sometimes represent real-world data more accurately.
+    *   **Implementation:** We also configured GMM to find 5 distinct clusters to ensure a fair comparison with the baseline.
+
+## 5. Evaluation and Results
+
+To quantitatively compare the performance of the two models, we used the **Silhouette Score**. This metric measures how well-separated the resulting clusters are. A higher score indicates that clusters are dense and far from each other. The scores were calculated on a 10% sample of the data for computational efficiency.
+
+*   **Baseline (K-Means) Silhouette Score: 0.0889**
+*   **Improved (GMM) Silhouette Score: 0.0703**
+
+**Interpretation:**
+The K-Means model achieved a slightly higher Silhouette Score than the GMM. This suggests that, for this dataset, the simpler, distance-based approach of K-Means resulted in clusters that were marginally more dense and better separated than those produced by the more flexible GMM. This can happen when the underlying data structure is more aligned with the assumptions of K-Means (i.e., the true customer segments are roughly spherical in the feature space).
+
+## 6. Visual Analysis
+
+Visual comparisons of the clustering results were generated to provide a qualitative assessment.
+
+*   **Scatter Plot Comparison (`cluster_comparison_scatterplot.png`):**
+    *   This plot shows the segments found by K-Means and GMM on a 2D plane of Age vs. Annual Premium.
+    *   Visually, both models appear to create similar segments. They both tend to separate customers based on Age and Premium, with some clusters for younger customers, some for older, and some distinguished by premium amount. The boundaries created by GMM may appear slightly more fluid or overlapping, which is consistent with its probabilistic nature.
+
+*   **Box Plot Comparison (e.g., `cluster_comparison_boxplot_age.png`):**
+    *   These plots show the distribution of each feature (Age, Annual_Premium, Vintage) within the clusters found by each model.
+    *   By examining these plots, we can build personas for each cluster. For example, one cluster might be characterized by low Age, low Premium, and low Vintage (new, young customers), while another might have high Age, high Premium, and high Vintage (long-term, high-value customers).
+    *   The comparison shows that both models create substantively similar segments. For instance, both models likely identify a "high premium" segment and a "senior" segment. The primary difference is in how they handle the boundaries between these groups.
+
+## 7. Conclusion and Recommendations
+
+This analysis successfully segmented the customer base using two different clustering techniques. 
+
+**Conclusion:**
+While the Gaussian Mixture Model offers more flexibility, the simpler **K-Means model is the recommended choice** for this specific project. It produced slightly better-defined clusters according to the Silhouette Score and created substantively similar, interpretable segments with a less complex algorithm.
+
+The segments identified can be used to understand customer personas. For example, by analyzing the boxplots, we can identify and label segments such as "Young & New Customers", "Established Mid-Life Customers", and "Senior Policyholders".
+
+**Recommendations for the Business:**
+1.  **Adopt the K-Means Segments:** Use the 5 segments identified by the K-Means model as the official customer segmentation framework.
+2.  **Profile Each Segment:** Conduct a deeper analysis of each segment's characteristics, including their historical response rate to previous campaigns (by joining the `Response` variable back to the clustered data).
+3.  **Develop Targeted Campaigns:** Design and deploy unique marketing strategies tailored to the needs and likely interests of each segment. For example, a campaign for "Young & New Customers" might emphasize affordability, while a campaign for "Senior Policyholders" could focus on comprehensive coverage and loyalty rewards.
+
+This segmentation provides a powerful, data-driven foundation for enhancing marketing effectiveness and improving customer engagement.
