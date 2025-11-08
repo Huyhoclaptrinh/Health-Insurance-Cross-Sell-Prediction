@@ -3,9 +3,15 @@
 
 ## 1. Project Objective
 
-The primary objective of this project is to perform customer segmentation on a dataset of health insurance policyholders. By grouping customers into distinct segments based on their demographic and policy information, we aim to gain a deeper understanding of the customer base. This analysis will serve as a foundation for developing targeted marketing strategies for a vehicle insurance cross-sell campaign.
+**The Opportunity:** The business has a large, loyal base of health insurance customers, and a key growth opportunity is to cross-sell a new vehicle insurance product to them. However, a generic, one-size-fits-all marketing campaign is inefficient and likely to yield a low return on investment. This project addresses that challenge.
 
-This report details a comparative analysis between two different clustering models to determine the most effective approach for segmenting these customers.
+**The Customer:** The target audience for this initiative is our existing health insurance policyholder base. While they already trust our brand, they are not a monolithic group and have diverse needs, behaviors, and priorities.
+
+**The Business Problem:** To market our new vehicle insurance product effectively, we must move beyond mass marketing and understand our customers on a deeper level. This analysis answers critical questions such as: Who are the young, price-sensitive customers? Who are the established, high-value clients? Who is most likely to be interested in a new insurance product?
+
+**The Solution (Customer Segmentation):** This analysis will group customers into distinct segments based on their demographics and policy history. By identifying and profiling these segments (e.g., "Young & New Customers," "Established Mid-Life Customers," "Senior Policyholders"), we can tailor our marketing efforts.
+
+**Business Impact and Decision Improvement:** This segmentation analysis will empower the marketing team to transition from a costly "spray and pray" approach to a data-driven, targeted strategy. The insights gained will allow them to make smarter decisions about how they design, budget, and execute their cross-selling campaigns, ultimately increasing conversion rates and maximizing return on investment. This report also details a comparative analysis between two different clustering models to determine the most effective technical approach for this segmentation.
 
 ## 2. Data
 

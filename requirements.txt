@@ -1,6 +1,6 @@
-pandas
-numpy
-scikit-learn
+pandas==2.2.2
+numpy<2.0
+scikit-learn==1.4.2
 matplotlib
 xgboost
 lightgbm
