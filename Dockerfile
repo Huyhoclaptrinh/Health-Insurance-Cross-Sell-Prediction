@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 # Define the command to run the clustering analysis
-CMD ["sh", "-c", "python3 src/eda_clustering.py && python3 src/compare_clusters.py && python3 src/visualize_clusters.py"]
+CMD ["sh", "-c", "python3 src/eda_clustering.py && python3 src/visualize_clusters.py"]

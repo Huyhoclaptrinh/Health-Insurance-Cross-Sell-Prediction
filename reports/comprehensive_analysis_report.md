@@ -29,6 +29,18 @@ Using the Mutual Information feature selection technique, we identified a new, m
 
 **Key Finding:** The most effective way to segment customers is by using features that are directly relevant to the business problem you are trying to solve. Customer behavior is a far better predictor than simple demographics.
 
+### Further Insights from Key Behavioral Predictors
+
+To further understand the drivers of customer response, we conducted additional exploratory analysis focusing on key behavioral predictors: `Vehicle_Damage`, `Previously_Insured`, and `Driving_License`.
+
+**Key Findings from Crosstabulations with Response:**
+
+*   **Vehicle Damage:** Customers with vehicle damage (`Vehicle_Damage = 1`) are significantly more likely to express interest in vehicle insurance (23.77% response rate) compared to those without damage (0.52% response rate). This highlights vehicle damage as a very strong positive predictor for cross-sell interest.
+*   **Previously Insured:** Conversely, customers who were *not* previously insured (`Previously_Insured = 0`) show a much higher response rate (22.55%) than those who were previously insured (0.09%). This is an expected but crucial insight, as individuals already covered are unlikely to seek new insurance.
+*   **Driving License:** Customers holding a driving license (`Driving_License = 1`) have a higher propensity to respond (12.27%) than those without one (5.05%). While logical, the magnitude of this difference is less pronounced than for vehicle damage or previous insurance status.
+
+These findings reinforce the strategy of focusing on behavioral features, as they directly correlate with the `Response` variable and provide clear indicators for targeting. Visualizations of these distributions and their relationship with the `Response` variable can be found in `reports/figures/key_predictors_distribution.png` and `reports/figures/key_predictors_by_response.png`.
+
 ---
 
 ## 4. The Journey to the Optimal Model
