@@ -6,22 +6,15 @@ This project is a machine learning pipeline to predict whether a customer who ha
 
 ```
 .
-├── app/
 ├── data/
-│   ├── processed/
-│   └── raw/
+│   └── processed/
 ├── health_insurance/
 ├── models/
 ├── reports/
 │   └── figures/
 ├── src/
-│   ├── __pycache__/
-│   ├── clustering.py
-│   ├── compare_clusters.py
 │   ├── data_load.py
 │   ├── eda_clustering.py
-│   ├── features.py
-│   ├── gmm_clustering.py
 │   └── visualize_clusters.py
 ├── .dockerignore
 ├── .gitignore
@@ -29,8 +22,7 @@ This project is a machine learning pipeline to predict whether a customer who ha
 ├── Dockerfile
 ├── LICENSE
 ├── README.md
-├── requirements.txt
-└── Vehicle Insurance among Health Policyholders Paper.docx
+└── requirements.txt
 ```
 
 -   `src/`: Contains the Python source code for data processing, feature engineering, clustering, and analysis.
@@ -89,13 +81,12 @@ This will take the raw data from `health_insurance/train.csv` and save the proce
 
 ### 2. Run Clustering Analysis
 
-The main analysis pipeline is defined in the `Dockerfile`. It performs exploratory data analysis on the clusters, compares them, and generates visualizations.
+The main analysis pipeline is defined in the `Dockerfile`. It performs exploratory data analysis on the clusters and generates visualizations.
 
 You can run the scripts sequentially:
 
 ```bash
 python src/eda_clustering.py
-python src/compare_clusters.py
 python src/visualize_clusters.py
 ```
 
